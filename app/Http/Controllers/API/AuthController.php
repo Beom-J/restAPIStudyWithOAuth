@@ -28,7 +28,7 @@ class AuthController extends Controller
             "password" => Hash::make($request->password),
         ]);
 
-        $accessToken = $user->createToken("authToken")->accesstoken;
+        $accessToken = $user->createToken("authToken")->accessToken;
 
         return response(["user" => $user, "access_token" => $accessToken]);
     }
@@ -52,7 +52,7 @@ class AuthController extends Controller
 
         $accessToken = auth()
             ->user()
-            ->createToken("authToken")->accesstoken;
+            ->createToken("authToken")->accessToken;
 
         return response(["access_token" => $accessToken]);
     }
