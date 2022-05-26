@@ -43,7 +43,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response(["error" => $validator->errors()]);
+            return response(["error" => $validator->errors()], 401);
         }
 
         if (!auth()->attempt($data)) {
