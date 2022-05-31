@@ -42,7 +42,7 @@ class ProductController extends Controller
             return response([
                 "error" => $validator->errors(),
                 "Validation Error",
-            ]);
+            ], 400);
         }
 
         $product = Product::create($data);
@@ -85,7 +85,7 @@ class ProductController extends Controller
             return response([
                 "error" => $validator->errors(),
                 "Validation Error",
-            ]);
+            ], 400);
         }
         $product->update($data);
 
