@@ -19,7 +19,7 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return response(["error" => $validator->errors()]);
+            return response(["error" => $validator->errors()], 401);
         }
 
         $user = User::create([
@@ -47,7 +47,7 @@ class AuthController extends Controller
         }
 
         if (!auth()->attempt($data)) {
-            return response(["message" => "Login credentials are invalid"]);
+            return response(["message" => "Login credentials are invalid"], 401);
         }
 
         $accessToken = auth()
